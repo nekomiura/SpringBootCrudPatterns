@@ -23,7 +23,6 @@ public class OrcamentoModel implements Serializable {
     @Enumerated(EnumType.STRING)
     private IcmsEstados icmsEstados;
 
-    @NotNull
     @Column(name="valor_orcamento")
     private BigDecimal valorOrcamento;
 
@@ -34,8 +33,18 @@ public class OrcamentoModel implements Serializable {
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;
 
+    public OrcamentoModel(BigDecimal bigDecimal, BigDecimal bigDecimal1) {
+    }
+
     public void calcularIcms() {
         this.valorICMS = this.icmsEstados.getStrategy().calcular(this.valorOrcamento);
     }
 
+    public String getDescontoOrcamento() {
+        return null;
+    }
+
+    public OrcamentoModel getOrcamentoById(Long id) {
+        return null;
+    }
 }

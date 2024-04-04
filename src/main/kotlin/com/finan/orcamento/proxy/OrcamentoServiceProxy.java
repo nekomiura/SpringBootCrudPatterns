@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrcamentoServiceProxy extends OrcamentoService {
 
-    private final OrcamentoService realService;
+    private final OrcamentoModel realService;
 
-    public OrcamentoServiceProxy(OrcamentoService realService) {
+    public OrcamentoServiceProxy(OrcamentoModel realService) {
         this.realService = realService;
     }
 
@@ -19,12 +19,16 @@ public class OrcamentoServiceProxy extends OrcamentoService {
     public OrcamentoModel getOrcamentoById(Long id) {
         if (primeiraChamada) {
             try {
-                Thread.sleep(300);//300 milisegundos = 3 segundos
+                Thread.sleep(3000);//3000 milisegundos = 3 segundos
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
             primeiraChamada= false;
         }
         return realService.getOrcamentoById(id);
+    }
+
+    public String getDescontoOrcamento() {
+        return null;
     }
 }

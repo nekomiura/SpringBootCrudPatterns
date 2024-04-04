@@ -45,6 +45,10 @@ public class OrcamentoService {
         orcamentoRepository.deleteById(id);
     }
 
+    protected OrcamentoModel getOrcamentoById(Long id) {
+        return null;
+    }
+
     //funções
     //Função calcula ICMS
    /* public void calculoICMS(OrcamentoModel orcamentoModel) {
